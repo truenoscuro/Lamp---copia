@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  phpapache:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./php:/var/www/
+      #- ./confg:/etc/apache2
+    expose:
+      - 80
+    ports:
+      - 80:80
+
+  mariadb:
+    image: mariadb:10.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=Nofre
+      - MYSQL_DATABASE=Tenda
+      - MYSQL_USER=Nofre
+      - MYSQL_PASSWORD=Nofre
+    expose:
+      - 3306
+    volumes:
+      - ./importBBDD:/docker-entrypoint-initdb.d 
+      - ./baseDades:/var/lib/mysql
+    ports:
+      - 3306:3306
+  
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      - PMA_HOST=mariadb
+      - UPLOAD_LIMIT=300M
+    expose:
+      - 8083
+    ports:
+      - 8083:80
+  
+
+
+
+  

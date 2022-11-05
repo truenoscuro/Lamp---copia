@@ -1,0 +1,25 @@
+
+.estoc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:3px;
+}
+.roba{
+    width: 60%;
+}
+.fitxa,.roba{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    border: solid 3px black;
+    background-color: whitesmoke;
+}
+.roba{
+    margin-bottom: 20px;
+}
+.preu,.nom{
+    font-family: 'Alkalami', serif;
+    font-size: x-large;
+}
